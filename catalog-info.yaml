@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: expensive-booby-java-springboot-gitops
+  description: This is GitOps manifest for expensive-booby-java-springboot   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: expensive-booby-java-springboot
+    janus-idp.io/tekton: expensive-booby-java-springboot 
+    backstage.io/kubernetes-id: expensive-booby-java-springboot 
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:expensive-booby-java-springboot
